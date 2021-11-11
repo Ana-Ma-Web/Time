@@ -1,10 +1,11 @@
 {
   "name": "time",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "My Time",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/Ana-Ma-Web/Time#readme",
   "devDependencies": {
-    "electron": "^15.3.1",
-    "mysql": "^2.18.1"
+    "electron": "^15.3.1"
+  },
+  "dependencies": {
+    "mysql2": "^2.3.3-rc.0"
   }
 }
