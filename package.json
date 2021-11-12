@@ -19,8 +19,5 @@
   "homepage": "https://github.com/Ana-Ma-Web/Time#readme",
   "devDependencies": {
     "electron": "^15.3.1"
-  },
-  "dependencies": {
-    "mysql2": "^2.3.3-rc.0"
   }
 }
