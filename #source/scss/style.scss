@@ -1,0 +1,192 @@
+@font-face {
+	font-family: 'Nunito';
+	src: url(/fonts/Nunito-Regular.ttf);
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Nunito';
+	src: url(/fonts/Nunito-SemiBold.ttf);
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Nunito';
+	src: url(/fonts/Nunito-Black.ttf);
+	font-weight: 900;
+	font-style: normal;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	font-family: "Nunito", sans-serif;
+	font-weight: 400;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+:root{
+	--background-block: linear-gradient(0deg, rgba(255,255,255,.4) 0%, rgba(47,150,172,.4) 100%);
+}
+
+.wrapper {
+}
+.container {
+}
+.main {
+}
+.header {
+}
+.time {
+}
+.menu {
+}
+.watch {
+
+		&__background {
+		}
+
+		&__numbers {
+		}
+
+		&__schedule {
+		}
+
+		&__1-circle {
+		}
+
+		&__2-circle {
+		}
+
+		&__3-circle {
+		}
+
+		&__4-circle {
+		}
+
+		&__5-circle {
+		}
+
+		&__hand {
+		}
+
+		&__reminders {
+		}
+}
+.calendar {
+}
+.tasks {
+
+		&__now {
+			background: var(--background-block);
+		}
+
+		&__title {
+		}
+
+		&__morning {
+		}
+
+		&__day {
+		}
+
+		&__evening {
+		}
+
+		&__someday {
+		}
+}
+.task {
+
+		&__fire {
+		}
+
+		&__text {
+		}
+
+		&__menu {
+		}
+
+		&__edit {
+		}
+
+		&__done {
+		}
+
+		&__postpone {
+		}
+
+		&__delete {
+		}
+}
+.activity {
+
+		&__navigation {
+
+			&_up {
+			}
+
+			&_down {
+			}
+		}
+
+		&__now {
+		}
+
+		&__column {
+		}
+
+		&__done {
+		}
+}
+.bubble {
+
+		&__arrow {
+		}
+
+		&__circle {
+		}
+
+		&__icon {
+		}
+
+		&__timer {
+		}
+
+		&__music {
+		}
+
+		&__pause {
+		}
+
+		&__volume {
+		}
+
+		&__repeat {
+		}
+
+		&__left {
+		}
+
+		&__right {
+		}
+
+		&__glare {
+		}
+}

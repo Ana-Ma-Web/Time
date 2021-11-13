@@ -3,20 +3,84 @@
 	<head>
 		<meta charset="UTF-8">
 		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-		<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+			<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+			<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
 		<title>Hello World!</title>
-
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<h1>Hello World!</h1>
-		We are using Node.js <span id="node-version"></span>,
-		Chromium <span id="chrome-version"></span>,
-		and Electron <span id="electron-version"></span>.
-		<input type="button" id="action-btn" value="Retrieve 10 first rows in the database" />
-			<table id="table" border="1">
-		</table>
+		<div class="wrapper">
+			<div class="container">
+				<div class="main">
+					<div class="header">
+						<div class="time">
+							14:22
+						</div>
+						<div class="menu">
+
+						</div>
+					</div>
+					<div class="watch">
+						<div class="watch__background"></div>
+						<div class="watch__numbers"></div>
+						<div class="watch__schedule">
+							<div class="watch__1-circle"></div>
+							<div class="watch__2-circle"></div>
+							<div class="watch__3-circle"></div>
+							<div class="watch__4-circle"></div>
+							<div class="watch__5-circle"></div>
+						</div>
+						<div class="watch__hand"></div>
+						<div class="watch__reminders"></div>
+					</div>
+					<div class="calendar"></div>
+				</div>
+				<div class="tasks">
+					<div class="tasks__now">
+						<div class="tasks__title">Срочно</div>
+						<div class="task">
+							<div class="task__fire"></div>
+							<div class="task__text">Что-то сделать</div>
+							<div class="task__menu">
+								<div class="task__edit">Изменить</div>
+								<div class="task__done">Выполнить</div>
+								<div class="task__postpone">Отложить</div>
+								<div class="task__delete">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="tasks__morning"></div>
+					<div class="tasks__day"></div>
+					<div class="tasks__evening"></div>
+					<div class="tasks__someday"></div>
+				</div>
+
+				<div class="activity">
+					<div class="activity__navigation_up"></div>
+					<div class="activity__now">
+						<div class="bubble">
+							<div class="bubble__arrow"></div>
+							<div class="bubble__circle"></div>
+							<div class="bubble__icon"></div>
+							<div class="bubble__timer"></div>
+							<div class="bubble__music">
+								<div class="bubble__pause"></div>
+								<div class="bubble__volume"></div>
+								<div class="bubble__repeat"></div>
+								<div class="bubble__left"></div>
+								<div class="bubble__right"></div>
+							</div>
+							<div class="bubble__glare"></div>
+						</div>
+					</div>
+					<div class="activity__column"></div>
+					<div class="activity__done"></div>
+					<div class="activity__navigation_down"></div>
+
+				</div>
+			</div>
+		</div>
 		<script src="./renderer.js"></script>
-		<script src="./script.js"></script>  
+		<script src="./js/script.js"></script>  
 	</body>
 </html>
