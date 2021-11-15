@@ -8,8 +8,8 @@ function createWindow () {
 		webPreferences: {
 			preload: path.join(__dirname, 'preload.js')
 		},
-		// transparent: true,
-		// titleBarStyle: 'hidden',
+		transparent: true,
+		titleBarStyle: 'hidden',
 		// titleBarOverlay: {
 		// 	color: '#2f3241',
 		// 	symbolColor: '#74b1be'

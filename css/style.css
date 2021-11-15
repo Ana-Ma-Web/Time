@@ -37,6 +37,8 @@ body {
   font-weight: 400;
   background-color: #222531;
   color: white;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
 }
 
 img {
@@ -45,6 +47,11 @@ img {
 
 a {
   text-decoration: none;
+  -webkit-app-region: no-drag;
+}
+
+button {
+  -webkit-app-region: no-drag;
 }
 
 .container {
@@ -80,7 +87,7 @@ a {
   font-weight: 900;
   width: 270px;
   height: 270px;
-  padding-top: 7px;
+  padding-top: 27px;
   position: relative;
 }
 
@@ -93,7 +100,8 @@ a {
 
 .watch__hour {
   width: 17px;
-  height: 50%;
+  height: -webkit-calc(50% - 20px);
+  height: calc(50% - 20px);
   -webkit-transform-origin: bottom;
       -ms-transform-origin: bottom;
           transform-origin: bottom;

@@ -1,18 +1,18 @@
 @font-face {
 	font-family: 'Nunito';
-	src: url(/fonts/Nunito-Regular.ttf);
+	src: url(../fonts/Nunito-Regular.ttf);
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Nunito';
-	src: url(/fonts/Nunito-SemiBold.ttf);
+	src: url(../fonts/Nunito-SemiBold.ttf);
 	font-weight: 600;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Nunito';
-	src: url(/fonts/Nunito-Black.ttf);
+	src: url(../fonts/Nunito-Black.ttf);
 	font-weight: 900;
 	font-style: normal;
 }
@@ -33,6 +33,8 @@ body {
 	font-weight: 400;
 	background-color: #222531;
 	color: white;
+	-webkit-app-region: drag;
+	-webkit-user-select: none;
 }
 
 img {
@@ -41,6 +43,10 @@ img {
 
 a {
 	text-decoration: none;
+	-webkit-app-region: no-drag;
+}
+button {
+	-webkit-app-region: no-drag;
 }
 
 :root{
@@ -54,11 +60,9 @@ a {
 	padding: 0 12px;
 	display: flex;
 	justify-content: space-between;
-	
 }
 .main {
 	width: 270px;
-
 }
 .header {
 	margin: 30px 0;
@@ -75,10 +79,8 @@ a {
 	font-weight: 900;
 	width: 270px;
 	height: 270px;
-	padding-top: 7px;
+	padding-top: 27px;
 	position: relative;
-
-
 
 		&__numbers {
 			width: 257px;
@@ -89,7 +91,7 @@ a {
 
 		&__hour{
 			width: 17px;
-			height: 50%;
+			height: calc(50% - 20px);
 			transform-origin:  bottom;
 			position: absolute;
 
@@ -270,7 +272,6 @@ a {
 	height: 240px;
 	background-color: wheat;
 	margin: 30px auto;
-
 }
 .tasks {
 
@@ -342,7 +343,6 @@ a {
 	height: 100px;
 	border-radius: 50%;
 	margin: 0 auto;
-	
 
 		&__arrow {
 		}
