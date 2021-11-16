@@ -69,9 +69,30 @@ button {
 }
 .time {
 	font-size: 36px;
+	text-align: center;
 }
 .menu {
 }
+
+.today-icons {
+	display: flex;	
+	justify-content: space-around;
+	&:not(:last-child){
+		margin-right: 5px;
+	}
+}
+.today-icon {
+
+		&__icon {
+			width: 24px;
+			height: 24px;		
+		}
+
+		&__number {
+		}
+}
+
+
 .watch {
 	margin: 30px auto;
 	color: #57648F;
@@ -274,7 +295,10 @@ button {
 	margin: 30px auto;
 }
 .tasks {
-
+	margin-top: 25px;
+	&__announcement{
+		color: #57648F;
+	}
 		&__now {
 		}
 

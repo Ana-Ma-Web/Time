@@ -6,7 +6,9 @@ function createWindow () {
 		width: 620,
 		height: 720,
 		webPreferences: {
-			preload: path.join(__dirname, 'preload.js')
+			preload: path.join(__dirname, 'preload.js'),
+			nodeIntegration: true,
+			contextIsolation: false
 		},
 		transparent: true,
 		titleBarStyle: 'hidden',
@@ -15,6 +17,8 @@ function createWindow () {
 		// 	symbolColor: '#74b1be'
 		// }
 	})
+
+	process.stdin.resume();
 
 	win.loadFile('index.html')
 }
