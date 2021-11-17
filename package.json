@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Ana-Ma-Web/Time#readme",
   "devDependencies": {
     "electron": "^15.3.1"
+  },
+  "dependencies": {
+    "mongodb": "^4.1.4"
   }
 }
