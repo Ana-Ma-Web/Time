@@ -9,8 +9,8 @@ function update() {
 	let minutes = date.getMinutes();
 	if (minutes < 10) minutes = '0' + minutes;
 	time.children[1].innerHTML = minutes;
-	console.log(date);
 }
 
 setInterval(update, 5000);
 update();
+
