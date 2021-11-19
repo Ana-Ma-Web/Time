@@ -14,3 +14,18 @@ function update() {
 setInterval(update, 5000);
 update();
 
+document.getElementById("show-tables").addEventListener("click", function() {
+	showTables();
+	mySelect();
+})
+
+document.getElementById("conn-end").addEventListener("click", function() {
+	connEnd();
+})
+
+document.getElementById("add").addEventListener("click", function() {
+	myInsert();
+})
+
+
+
