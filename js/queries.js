@@ -23,6 +23,7 @@ function mySelect (){
 }
 
 
-function myInsert(){
-	myQuery('INSERT INTO ttest (test) VALUES (1);');
+function Insert(){
+	myQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
 }
+
