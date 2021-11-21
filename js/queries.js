@@ -22,8 +22,10 @@ function mySelect (){
    myQuery('SELECT timeStart FROM active_time;');
 }
 
-
-function Insert(){
+function insert(){
 	myQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
 }
 
+function test(){
+	testQuery('SELECT ttest FROM test;');
+}
