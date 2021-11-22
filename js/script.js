@@ -24,8 +24,13 @@ document.getElementById("conn-end").addEventListener("click", function() {
 })
 
 document.getElementById("add").addEventListener("click", function() {
+	insert();
+})
+
+document.getElementById("test").addEventListener("click", function() {
 	test();
 })
+
 
 
 
