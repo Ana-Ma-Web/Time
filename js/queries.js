@@ -10,26 +10,39 @@ function myQuery (queryString){
 		
 	});
 }
+// let result;
 
 function testQuery (queryString){
    queryString = String(queryString);
-	let result;
+	result = 2;
+
 	connection.query(queryString, (err, rows, fields) =>{
 		if (err) {
 			return console.log('Error', err);
 		}
 		console.log(rows);
 		result = rows;
+		console.log(result);
+		return result;
 	});
+}
+function testFunction(x){
+	let result = testQuery(x);
+	console.log(result);
 	setTimeout(function(){
 		console.log(result);
-		Object.keys(result).forEach(function(el) {
-			var row = result[el];
-			console.log(row.test);
-		});
+	// 	Object.keys(result).forEach(function(el) {
+	// 		var test = result[el];
+	// 		console.log(test.timeEnd);
+	// 		document.getElementById("test").innerHTML = test.timeEnd;
+	// 	});
 	}, 1000);
 }
 
+function test(){
+	// testQuery('SELECT timeEnd FROM active_time WHERE timeId = "1";');
+	testFunction('SELECT timeEnd FROM active_time WHERE timeId = "1";');
+}
 
 function showTables (){
    myQuery('SHOW TABLES;');
@@ -47,6 +60,4 @@ function insert(){
 	myQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
 }
 
-function test(){
-	testQuery('SELECT timeEnd FROM active_time WHERE timeId = "1";');
-}
+
