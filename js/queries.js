@@ -10,17 +10,15 @@ function myQuery (queryString){
 		
 	});
 }
-// let result;
+let result;
 
 function testQuery (queryString){
    queryString = String(queryString);
-	result = 2;
 
 	connection.query(queryString, (err, rows, fields) =>{
 		if (err) {
 			return console.log('Error', err);
 		}
-		console.log(rows);
 		result = rows;
 		console.log(result);
 		return result;
@@ -28,7 +26,6 @@ function testQuery (queryString){
 }
 function testFunction(x){
 	let result = testQuery(x);
-	console.log(result);
 	setTimeout(function(){
 		console.log(result);
 	// 	Object.keys(result).forEach(function(el) {
@@ -59,5 +56,7 @@ function mySelect (){
 function insert(){
 	myQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
 }
+
+
 
 
