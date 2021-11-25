@@ -1,61 +1,47 @@
-const { realpathSync } = require("original-fs");
+function testPromise() {
 
-function myQuery (queryString){
-   queryString = String(queryString);
-	connection.query(queryString, (err, rows, fields) =>{
-		if (err) {
-			return console.log('Error', err);
+	let pTest = new Promise((resolve, reject) => {
+
+		function testQuery (){
+			connection.query('SELECT timeEnd FROM active_time WHERE timeId = "1";', (err, rows, fields) =>{
+				if (err) {
+					return console.log('Error', err);
+				}
+				result = rows;
+				resolve(result);
+			});
 		}
-		console.log(rows);
-		
+		testQuery();
+	});
+
+	pTest.then(function(result) {
+		Object.keys(result).forEach(function(el) {
+			var test = result[el];
+			document.getElementById("test").innerHTML = test.timeEnd;
+		});
+	}).catch((reason) => {
+		console.log(`Handle rejected promise (${reason}) here.`);
 	});
 }
-let result;
 
-function testQuery (queryString){
-   queryString = String(queryString);
+// testQuery('SELECT timeEnd FROM active_time WHERE timeId = "1";');
 
-	connection.query(queryString, (err, rows, fields) =>{
-		if (err) {
-			return console.log('Error', err);
-		}
-		result = rows;
-		console.log(result);
-		return result;
-	});
-}
-function testFunction(x){
-	let result = testQuery(x);
-	setTimeout(function(){
-		console.log(result);
-	// 	Object.keys(result).forEach(function(el) {
-	// 		var test = result[el];
-	// 		console.log(test.timeEnd);
-	// 		document.getElementById("test").innerHTML = test.timeEnd;
-	// 	});
-	}, 1000);
-}
 
-function test(){
-	// testQuery('SELECT timeEnd FROM active_time WHERE timeId = "1";');
-	testFunction('SELECT timeEnd FROM active_time WHERE timeId = "1";');
-}
-
-function showTables (){
-   myQuery('SHOW TABLES;');
-}
+// function showTables (){
+// 	myQuery('SHOW TABLES;');
+// }
 
 // function mySelect (){
 //    myQuery('SELECT * FROM logging LEFT JOIN  active_time ON active_time.timeId = logging.timeId LEFT JOIN activity ON activity.actId = logging.actId;');
 // }
 
-function mySelect (){
-   myQuery('SELECT timeStart FROM active_time;');
-}
+// function mySelect (){
+// 	myQuery('SELECT timeStart FROM active_time;');
+// }
 
-function insert(){
-	myQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
-}
+// function insert(){
+// 	testQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
+// }
 
 
 

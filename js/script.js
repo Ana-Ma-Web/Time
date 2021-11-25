@@ -15,7 +15,7 @@ setInterval(update, 5000);
 update();
 
 document.getElementById("show-tables").addEventListener("click", function() {
-	showTables();
+	// showTables();
 	mySelect();
 })
 
@@ -28,7 +28,7 @@ document.getElementById("add").addEventListener("click", function() {
 })
 
 document.getElementById("test").addEventListener("click", function() {
-	test();
+	testPromise();
 
 })
 
