@@ -9,9 +9,16 @@ function update() {
 	let minutes = date.getMinutes();
 	if (minutes < 10) minutes = '0' + minutes;
 	time.children[1].innerHTML = minutes;
+
+	document.getElementById("test-x").innerHTML = x;
+	Object.keys(x).forEach(function(el) {
+		var test = x[el];
+		document.getElementById("test-x").innerHTML = test.timeEnd;
+		
+	});
 }
 
-setInterval(update, 5000);
+setInterval(update, 100);
 update();
 
 document.getElementById("show-tables").addEventListener("click", function() {

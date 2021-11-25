@@ -1,3 +1,7 @@
+let x = 0;
+
+
+
 function testPromise() {
 
 	let pTest = new Promise((resolve, reject) => {
@@ -15,9 +19,11 @@ function testPromise() {
 	});
 
 	pTest.then(function(result) {
+		x = result;
 		Object.keys(result).forEach(function(el) {
 			var test = result[el];
 			document.getElementById("test").innerHTML = test.timeEnd;
+			
 		});
 	}).catch((reason) => {
 		console.log(`Handle rejected promise (${reason}) here.`);
