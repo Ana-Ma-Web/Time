@@ -1,13 +1,14 @@
 let x = 0;
+const queryActTimeId1 = 'SELECT timeEnd FROM active_time WHERE timeId = "1";';
 
+async function testPromise() {
 
-
-function testPromise() {
+	// let pTest = new Promise((resolve, reject) => {
 
 	let pTest = new Promise((resolve, reject) => {
 
 		function testQuery (){
-			connection.query('SELECT timeEnd FROM active_time WHERE timeId = "1";', (err, rows, fields) =>{
+			connection.query(queryActTimeId1, (err, rows, fields) =>{
 				if (err) {
 					return console.log('Error', err);
 				}
@@ -18,17 +19,75 @@ function testPromise() {
 		testQuery();
 	});
 
-	pTest.then(function(result) {
-		x = result;
-		Object.keys(result).forEach(function(el) {
-			var test = result[el];
-			document.getElementById("test").innerHTML = test.timeEnd;
-			
-		});
-	}).catch((reason) => {
-		console.log(`Handle rejected promise (${reason}) here.`);
-	});
+
+
+		const pTest = await function(){
+			connection.query(queryActTimeId1, (err, rows, fields) =>{
+				if (err) {
+					return console.log('Error', err);
+				}
+				result = rows;
+				// resolve(result);
+				x = result;
+				Object.keys(result).forEach(function(el) {
+					var test = result[el];
+					document.getElementById("test").innerHTML = test.timeEnd;
+				});
+		
+			});
+		}
+		return pTest;
+		// testQuery();
+	// });
+
+	// pTest.then(function(result) {
+	// 	x = result;
+	// 	Object.keys(result).forEach(function(el) {
+	// 		var test = result[el];
+	// 		document.getElementById("test").innerHTML = test.timeEnd;
+	// 	});
+	// }).catch((reason) => {
+	// 	console.log(`Handle rejected promise (${reason}) here.`);
+	// });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// function testPromise() {
+
+// 	let pTest = new Promise((resolve, reject) => {
+
+// 		function testQuery (){
+// 			connection.query(queryActTimeId1, (err, rows, fields) =>{
+// 				if (err) {
+// 					return console.log('Error', err);
+// 				}
+// 				result = rows;
+// 				resolve(result);
+// 			});
+// 		}
+// 		testQuery();
+// 	});
+
+// 	pTest.then(function(result) {
+// 		x = result;
+// 		Object.keys(result).forEach(function(el) {
+// 			var test = result[el];
+// 			document.getElementById("test").innerHTML = test.timeEnd;
+// 		});
+// 	}).catch((reason) => {
+// 		console.log(`Handle rejected promise (${reason}) here.`);
+// 	});
+// }
 
 // testQuery('SELECT timeEnd FROM active_time WHERE timeId = "1";');
 
