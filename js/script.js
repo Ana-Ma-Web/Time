@@ -36,8 +36,8 @@ document.getElementById("add").addEventListener("click", function() {
 
 document.getElementById("test").addEventListener("click", function() {
 	testPromise();
-
 })
+
 
 
 
