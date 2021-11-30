@@ -10,11 +10,12 @@ function update() {
 	if (minutes < 10) minutes = '0' + minutes;
 	time.children[1].innerHTML = minutes;
 
-	document.getElementById("test-x").innerHTML = x;
 	Object.keys(x).forEach(function(el) {
-		var test = x[el];
-		document.getElementById("test-x").innerHTML = test.timeEnd;
-		
+		let xEnd = String(x[el].timeEnd);
+		let currentData = document.getElementById("test-x").outerText;
+		if (currentData != xEnd) {
+			document.getElementById("test-x").innerHTML = xEnd;
+		}
 	});
 }
 

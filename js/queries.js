@@ -20,8 +20,12 @@ function testPromise() {
 	pTest.then(function(result) {
 		x = result;
 		Object.keys(result).forEach(function(el) {
-			var test = result[el];
-			document.getElementById("test").innerHTML = test.timeEnd;
+			let test = result[el];
+			let testResult = test.timeEnd;
+			let currentData = document.getElementById("test").outerText;
+			if (currentData != testResult) {
+				document.getElementById("test").innerHTML = testResult;
+			}
 		});
 	}).catch((reason) => {
 		console.log(`Handle rejected promise (${reason}) here.`);
