@@ -72,6 +72,10 @@ button {
 .time {
 	font-size: 36px;
 }
+.date{
+	font-size: 18px;
+	margin-bottom: 5px;
+}
 .current-day{
 	color: rgb(95, 204, 95);
 	text-decoration: underline;
@@ -89,13 +93,13 @@ button {
 }
 .today-icon {
 
-		&__icon {
-			width: 24px;
-			height: 24px;
-		}
+	&__icon {
+		width: 24px;
+		height: 24px;
+	}
 
-		&__number {
-		}
+	&__number {
+	}
 }
 
 
@@ -305,23 +309,23 @@ button {
 	&__announcement{
 		color: #57648F;
 	}
-		&__now {
-		}
+	&__now {
+	}
 
-		&__title {
-		}
+	&__title {
+	}
 
-		&__morning {
-		}
+	&__morning {
+	}
 
-		&__day {
-		}
+	&__day {
+	}
 
-		&__evening {
-		}
+	&__evening {
+	}
 
-		&__someday {
-		}
+	&__someday {
+	}
 }
 .task {
 
@@ -349,23 +353,23 @@ button {
 .activity {
 	width: 110px;
 
-		&__navigation {
+	&__navigation {
 
-			&_up {
-			}
-
-			&_down {
-			}
+		&_up {
 		}
 
-		&__now {
+		&_down {
 		}
+	}
 
-		&__column {
-		}
+	&__now {
+	}
 
-		&__done {
-		}
+	&__column {
+	}
+
+	&__done {
+	}
 }
 .bubble {
 	background-color: pink;
@@ -374,36 +378,36 @@ button {
 	border-radius: 50%;
 	margin: 0 auto;
 
-		&__arrow {
-		}
+	&__arrow {
+	}
 
-		&__circle {
-		}
+	&__circle {
+	}
 
-		&__icon {
-		}
+	&__icon {
+	}
 
-		&__timer {
-		}
+	&__timer {
+	}
 
-		&__music {
-		}
+	&__music {
+	}
 
-		&__pause {
-		}
+	&__pause {
+	}
 
-		&__volume {
-		}
+	&__volume {
+	}
 
-		&__repeat {
-		}
+	&__repeat {
+	}
 
-		&__left {
-		}
+	&__left {
+	}
 
-		&__right {
-		}
+	&__right {
+	}
 
-		&__glare {
-		}
+	&__glare {
+	}
 }

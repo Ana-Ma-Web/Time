@@ -15,11 +15,11 @@ function update() {
 
 	let curDate = date.getDate();
 	if (curDate < 10) curDate = '0' + curDate;
-	myDate.children[0].innerHTML = curDate;
+	myDate.children[0].innerHTML = curDate + '.';
 
-	let month = date.getMonth();
+	let month = date.getMonth() + 1;
 	if (month < 10) month = '0' + month;
-	myDate.children[1].innerHTML = month + 1;
+	myDate.children[1].innerHTML = month + '.';
 
 	let year = date.getFullYear();
 	if (year < 10) year = '0' + year;
