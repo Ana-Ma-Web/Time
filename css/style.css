@@ -81,6 +81,11 @@ button {
   font-size: 36px;
 }
 
+.date {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
 .current-day {
   color: #5fcc5f;
   text-decoration: underline;

@@ -3,30 +3,43 @@ function update() {
 	let time = document.getElementById('time');
 	let myDate = document.getElementById('date');
 	let week = document.getElementById('week');
-	
 	let date = new Date();
+
 	let hours = date.getHours();
 	if (hours < 10) hours = '0' + hours;
-	time.children[0].innerHTML = hours;
+	if (hours != time.children[0].outerText) {
+		time.children[0].innerHTML = hours;
+	}
 
 	let minutes = date.getMinutes();
 	if (minutes < 10) minutes = '0' + minutes;
-	time.children[1].innerHTML = minutes;
+	if (minutes != time.children[1].outerText) {
+		time.children[1].innerHTML = minutes;
+	}
 
 	let curDate = date.getDate();
 	if (curDate < 10) curDate = '0' + curDate;
-	myDate.children[0].innerHTML = curDate + '.';
+	if (curDate != myDate.children[0].outerText) {
+		myDate.children[0].innerHTML = curDate;
+	}
 
 	let month = date.getMonth() + 1;
 	if (month < 10) month = '0' + month;
-	myDate.children[1].innerHTML = month + '.';
+	if (month != myDate.children[1].outerText) {
+		myDate.children[1].innerHTML = month;
+	}
 
 	let year = date.getFullYear();
 	if (year < 10) year = '0' + year;
-	myDate.children[2].innerHTML = year;
+	if (year != myDate.children[2].outerText) {
+		myDate.children[2].innerHTML = year;
+	}
+
 
 	let day = date.getDay();
 	week.children[day].classList.add('current-day');
+	week.children[(day - 1)].classList.remove('current-day');
+
 
 
 	Object.keys(x).forEach(function(el) {
