@@ -4,7 +4,6 @@ const queryActTimeId1 = 'SELECT timeEnd FROM active_time WHERE timeId = "1";';
 function testPromise() {
 
 	let pTest = new Promise((resolve, reject) => {
-
 		function testQuery (){
 			connection.query(queryActTimeId1, (err, rows, fields) =>{
 				if (err) {

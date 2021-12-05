@@ -35,10 +35,29 @@ function update() {
 		myDate.children[2].innerHTML = year;
 	}
 
-
 	let day = date.getDay();
-	week.children[day].classList.add('current-day');
-	week.children[(day - 1)].classList.remove('current-day');
+	if (day > 0) {
+		if (day === 1) {
+			week.children[(day - 1)].classList.add('current-day');
+			week.children[(day + 5)].classList.remove('current-day');
+		}else if(day > 1){
+			week.children[(day - 1)].classList.add('current-day');
+			week.children[(day - 2)].classList.remove('current-day');
+		}
+		else{
+			week.children[(day - 1)].classList.add('current-day');
+		};
+	}else{
+		week.children[(day + 6)].classList.add('current-day');
+		week.children[(day + 5)].classList.remove('current-day');
+	}
+	// let day = date.getDay();
+	// week.children[day].classList.add('current-day');
+	// if (day > 0) {
+	// 	week.children[(day - 1)].classList.remove('current-day');
+	// }else{
+	// 	week.children[(day + 6)].classList.remove('current-day');
+	// }
 
 
 
