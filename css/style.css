@@ -52,6 +52,12 @@ a {
 
 button {
   -webkit-app-region: no-drag;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  border: inherit;
+  padding: 0;
+  cursor: pointer;
 }
 
 .container {
@@ -73,7 +79,7 @@ button {
 }
 
 .header {
-  margin: 30px 0;
+  margin: 30px 0 10px;
   text-align: center;
 }
 
@@ -86,8 +92,11 @@ button {
   margin-bottom: 5px;
 }
 
-.current-day {
-  color: #5fcc5f;
+.week {
+  font-size: 14px;
+}
+
+.week span:first-child {
   text-decoration: underline;
   font-weight: 900;
 }
