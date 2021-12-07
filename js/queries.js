@@ -33,7 +33,6 @@ function testPromise() {
 
 // testQuery('SELECT timeEnd FROM active_time WHERE timeId = "1";');
 
-
 // function showTables (){
 // 	myQuery('SHOW TABLES;');
 // }
@@ -49,6 +48,22 @@ function testPromise() {
 // function insert(){
 // 	testQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
 // }
+
+function insertTaskQuery (val){
+	const currentQuery = 'INSERT INTO task (name) VALUES ("' + val + '");';
+	connection.query(currentQuery, (err, rows, fields) =>{
+		if (err) {
+			return console.log('Error', err);
+		}
+	});
+}
+
+function insertTask(){
+	addTaskInput = document.getElementById('add-task');
+	insertTaskQuery(addTaskInput.value);
+	addTaskInput.value = '';
+}
+
 
 
 

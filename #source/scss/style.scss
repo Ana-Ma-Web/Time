@@ -54,6 +54,9 @@ button {
 	padding: 0;
 	cursor: pointer;
 }
+input{
+	-webkit-app-region: no-drag;
+}
 
 :root{
 }

@@ -60,6 +60,10 @@ button {
   cursor: pointer;
 }
 
+input {
+  -webkit-app-region: no-drag;
+}
+
 .container {
   max-width: 685px;
   margin: 0 auto;

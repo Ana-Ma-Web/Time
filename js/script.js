@@ -99,6 +99,12 @@ document.getElementById("test").addEventListener("click", function() {
 })
 
 
+document.getElementById("add-task-btn").addEventListener("click", function() {
+	insertTask();
+})
+
+
+
 
 
 
