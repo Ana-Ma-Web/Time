@@ -10,7 +10,7 @@ function update() {
 	updateMonth();
 	updateYear();
 	updateWeek();
-	updateTest();
+	// updateTest();
 
 	function updateHours(){
 		let hours = date.getHours();
@@ -67,15 +67,20 @@ function update() {
 		}
 	}
 
-	function updateTest(){
-		Object.keys(x).forEach(function(el) {
-			let xEnd = String(x[el].timeEnd);
-			let currentData = document.getElementById("test-x").outerText;
-			if (currentData != xEnd) {
-				document.getElementById("test-x").innerHTML = xEnd;
-			}
-		});
-	}
+	// function updateTest(){
+	// 	debugger;
+	// 	let x = 0;
+	// 	function testInner(){
+	// 		Object.keys(x).forEach(function(el) {
+	// 			let xEnd = String(x[el].timeEnd);
+	// 			let currentData = document.getElementById("test-x").outerText;
+	// 			if (currentData != xEnd) {
+	// 				document.getElementById("test-x").innerHTML = xEnd;
+	// 			}
+	// 		});
+	// 	}
+	// 	testInner();
+	// }
 }
 
 setInterval(update, 100);
@@ -100,9 +105,12 @@ document.getElementById("test").addEventListener("click", function() {
 
 
 document.getElementById("add-task-btn").addEventListener("click", function() {
-	insertTask();
+	inputTask();
 })
 
+document.getElementById("show-task-btn").addEventListener("click", function() {
+	showTasks();
+})
 
 
 

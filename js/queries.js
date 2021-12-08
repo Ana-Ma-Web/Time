@@ -1,7 +1,6 @@
-let x = 0;
-const queryActTimeId1 = 'SELECT timeEnd FROM active_time WHERE timeId = "1";';
 
 function testPromise() {
+	const queryActTimeId1 = 'SELECT timeEnd FROM active_time WHERE timeId = "1";';
 
 	let pTest = new Promise((resolve, reject) => {
 		function testQuery (){
@@ -24,6 +23,12 @@ function testPromise() {
 			let currentData = document.getElementById("test").outerText;
 			if (currentData != testResult) {
 				document.getElementById("test").innerHTML = testResult;
+				
+				let xEnd = String(x[el].timeEnd);
+				let currentDataX = document.getElementById("test-x").outerText;
+				if (currentDataX != xEnd) {
+					document.getElementById("test-x").innerHTML = xEnd;
+				}
 			}
 		});
 	}).catch((reason) => {
@@ -58,11 +63,52 @@ function insertTaskQuery (val){
 	});
 }
 
-function insertTask(){
+function inputTask(){
 	addTaskInput = document.getElementById('add-task');
 	insertTaskQuery(addTaskInput.value);
 	addTaskInput.value = '';
 }
+
+function showTasks() {
+	const queryTaskShow = 'SELECT id, name FROM task;';
+
+	let pTest = new Promise((resolve, reject) => {
+		function testQuery (){
+			connection.query(queryTaskShow, (err, rows, fields) =>{
+				if (err) {
+					return console.log('Error', err);
+				}
+				result = rows;
+				resolve(result);
+			});
+		}
+		testQuery();
+	});
+
+	pTest.then(function(result) {
+
+		urgentList = document.getElementById('task-fire');
+		while (urgentList.firstChild) {
+			urgentList.removeChild(urgentList.firstChild);
+		}
+
+		Object.keys(result).forEach(function(el) {
+			let testResult = result[el];
+			let resultName = testResult.name;
+			let resultId = testResult.id;
+		
+			let liList = document.createElement('li');
+			liList.setAttribute("id", "task-id-" + resultId);
+			liList.classList.add("task__text");
+			liList.innerHTML = resultName;
+			urgentList.append(liList);
+		});
+	}).catch((reason) => {
+		console.log(`Handle rejected promise (${reason}) here.`);
+	});
+}
+
+
 
 
 

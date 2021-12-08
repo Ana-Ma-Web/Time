@@ -64,6 +64,10 @@ input {
   -webkit-app-region: no-drag;
 }
 
+.test-btn {
+  display: block;
+}
+
 .container {
   max-width: 685px;
   margin: 0 auto;
