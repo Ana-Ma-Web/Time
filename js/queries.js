@@ -61,6 +61,7 @@ function insertTaskQuery (val){
 			return console.log('Error', err);
 		}
 	});
+	showTasks();
 }
 
 function inputTask(){
@@ -72,8 +73,8 @@ function inputTask(){
 function showTasks() {
 	const queryTaskShow = 'SELECT id, name FROM task;';
 
-	let pTest = new Promise((resolve, reject) => {
-		function testQuery (){
+	let pShowTask = new Promise((resolve, reject) => {
+		function showQuery (){
 			connection.query(queryTaskShow, (err, rows, fields) =>{
 				if (err) {
 					return console.log('Error', err);
@@ -82,10 +83,10 @@ function showTasks() {
 				resolve(result);
 			});
 		}
-		testQuery();
+		showQuery();
 	});
 
-	pTest.then(function(result) {
+	pShowTask.then(function(result) {
 
 		urgentList = document.getElementById('task-fire');
 		while (urgentList.firstChild) {
@@ -103,9 +104,41 @@ function showTasks() {
 			liList.innerHTML = resultName;
 			urgentList.append(liList);
 		});
+
+		//TEST
+		function tasksListener(){
+			let tasksTextSelect = document.querySelectorAll(".task__text");
+			for (let i = 0; i < tasksTextSelect.length; i++) {
+				const element = tasksTextSelect[i];
+				element.addEventListener("click", function() {
+					deleteTask(this);
+				})
+			}
+		}
+		tasksListener();
+
+
+
 	}).catch((reason) => {
 		console.log(`Handle rejected promise (${reason}) here.`);
 	});
+}
+
+
+
+
+function deleteTaskQuery (val){
+	let taskId = val.split('task-id-')[1];
+	const currentQuery = "DELETE FROM task WHERE id = " + taskId + ";";
+	connection.query(currentQuery, (err, rows, fields) =>{
+		if (err) {
+			return console.log('Error', err);
+		}
+	});
+	showTasks();
+}
+function deleteTask(val){
+	deleteTaskQuery(val.id);
 }
 
 

@@ -453,6 +453,11 @@ input {
   color: #57648F;
 }
 
+.task__text {
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
 .activity {
   width: 110px;
 }

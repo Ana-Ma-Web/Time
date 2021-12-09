@@ -349,6 +349,9 @@ input{
 		}
 
 		&__text {
+			cursor: pointer;
+			-webkit-app-region: no-drag;
+
 		}
 
 		&__menu {
