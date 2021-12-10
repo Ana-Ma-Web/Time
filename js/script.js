@@ -103,14 +103,13 @@ document.getElementById("test").addEventListener("click", function() {
 	testPromise();
 })
 
-
-document.getElementById("add-task-btn").addEventListener("click", function() {
+document.getElementById("form-add").addEventListener("submit", function(e) {
 	inputTask();
-})
+	e.preventDefault();
+}, false);
 
 document.getElementById("show-task-btn").addEventListener("click", function() {
 	showTasks();
 })
-
 
 

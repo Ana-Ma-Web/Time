@@ -54,20 +54,21 @@ function testPromise() {
 // 	testQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
 // }
 
-function insertTaskQuery (val){
-	const currentQuery = 'INSERT INTO task (name) VALUES ("' + val + '");';
+function insertQuery (task, val){
+	const currentQuery = 'INSERT INTO ' + task + ' (name) VALUES ("' + val + '");';
 	connection.query(currentQuery, (err, rows, fields) =>{
 		if (err) {
 			return console.log('Error', err);
 		}
 	});
-	showTasks();
+	// showTasks();
 }
 
 function inputTask(){
 	addTaskInput = document.getElementById('add-task');
-	insertTaskQuery(addTaskInput.value);
+	insertQuery('task', addTaskInput.value);
 	addTaskInput.value = '';
+	showTasks();
 }
 
 function showTasks() {
@@ -110,7 +111,7 @@ function showTasks() {
 			let tasksTextSelect = document.querySelectorAll(".task__text");
 			for (let i = 0; i < tasksTextSelect.length; i++) {
 				const element = tasksTextSelect[i];
-				element.addEventListener("click", function() {
+				element.addEventListener("dblclick", function() {
 					deleteTask(this);
 				})
 			}
