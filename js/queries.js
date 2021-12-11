@@ -54,22 +54,7 @@ function testPromise() {
 // 	testQuery('INSERT INTO active_time (timeStart) VALUES ("2004-05-23 14:25:10");');
 // }
 
-function insertQuery (task, val){
-	const currentQuery = 'INSERT INTO ' + task + ' (name) VALUES ("' + val + '");';
-	connection.query(currentQuery, (err, rows, fields) =>{
-		if (err) {
-			return console.log('Error', err);
-		}
-	});
-	// showTasks();
-}
 
-function inputTask(){
-	addTaskInput = document.getElementById('add-task');
-	insertQuery('task', addTaskInput.value);
-	addTaskInput.value = '';
-	showTasks();
-}
 
 function showTasks() {
 	const queryTaskShow = 'SELECT id, name FROM task;';
@@ -107,16 +92,7 @@ function showTasks() {
 		});
 
 		//TEST
-		function tasksListener(){
-			let tasksTextSelect = document.querySelectorAll(".task__text");
-			for (let i = 0; i < tasksTextSelect.length; i++) {
-				const element = tasksTextSelect[i];
-				element.addEventListener("dblclick", function() {
-					deleteTask(this);
-				})
-			}
-		}
-		tasksListener();
+		delTasksListener();
 
 
 
@@ -127,19 +103,35 @@ function showTasks() {
 
 
 
-
-function deleteTaskQuery (val){
-	let taskId = val.split('task-id-')[1];
-	const currentQuery = "DELETE FROM task WHERE id = " + taskId + ";";
+function insertQuery (table, val){
+	const currentQuery = 'INSERT INTO ' + table + ' (name) VALUES ("' + val + '");';
 	connection.query(currentQuery, (err, rows, fields) =>{
 		if (err) {
 			return console.log('Error', err);
 		}
 	});
+}
+
+function deleteQuery (table, col, rowId){
+	const currentQuery = "DELETE FROM " + table + " WHERE " + col + " = " + rowId + ";";
+	connection.query(currentQuery, (err, rows, fields) =>{
+		if (err) {
+			return console.log('Error', err);
+		}
+	});
+}
+
+function inputTask(){
+	addTaskInput = document.getElementById('add-task');
+	insertQuery('task', addTaskInput.value);
+	addTaskInput.value = '';
 	showTasks();
 }
+
 function deleteTask(val){
-	deleteTaskQuery(val.id);
+	let rowId = val.id.split('task-id-')[1];
+	deleteQuery('task', 'id', rowId);
+	showTasks();
 }
 
 

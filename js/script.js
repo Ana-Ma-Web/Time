@@ -1,3 +1,5 @@
+showTasks();
+
 function update() {
 	let date = new Date();
 	let time = document.getElementById('time');
@@ -112,4 +114,13 @@ document.getElementById("show-task-btn").addEventListener("click", function() {
 	showTasks();
 })
 
+function delTasksListener(){
+	let tasksTextSelect = document.querySelectorAll(".task__text");
+	for (let i = 0; i < tasksTextSelect.length; i++) {
+		const element = tasksTextSelect[i];
+		element.addEventListener("dblclick", function() {
+			deleteTask(this);
+		})
+	}
+}
 
