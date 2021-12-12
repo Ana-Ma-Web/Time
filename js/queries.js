@@ -95,7 +95,7 @@ function showTasks() {
 		delTasksListener();
 
 
-
+		
 	}).catch((reason) => {
 		console.log(`Handle rejected promise (${reason}) here.`);
 	});
@@ -135,6 +135,17 @@ function deleteTask(val){
 }
 
 
+
+function insertTime(){
+	currentTime = new Date().toISOString().slice(0, 19).replace('T', ' ');;
+
+	const currentQuery = "INSERT INTO active_time (timeStart) VALUES ('" + currentTime + "');";
+	connection.query(currentQuery, (err, rows, fields) =>{
+		if (err) {
+			return console.log('Error', err);
+		}
+	});
+}
 
 
 

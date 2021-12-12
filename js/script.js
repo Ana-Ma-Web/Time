@@ -124,3 +124,8 @@ function delTasksListener(){
 	}
 }
 
+document.getElementById("add-time-btn").addEventListener("click", function() {
+	insertTime();
+})
+
+
