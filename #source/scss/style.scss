@@ -391,10 +391,10 @@ input{
 	}
 }
 .bubble {
-	background-color: pink;
+	// background-color: pink;
 	width: 100px;
 	height: 100px;
-	border-radius: 50%;
+	// border-radius: 50%;
 	margin: 0 auto;
 
 	&__arrow {
@@ -407,6 +407,22 @@ input{
 	}
 
 	&__timer {
+		position: relative;
+		height: 100px;
+		width: 100px;
+	}
+
+	&__svg{
+	}
+
+	&__circle{
+		fill: none;
+		stroke: none;
+	}
+
+	&__path-elapsed{
+		stroke-width: 7px;
+		stroke: grey;
 	}
 
 	&__music {

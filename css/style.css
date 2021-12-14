@@ -463,10 +463,23 @@ input {
 }
 
 .bubble {
-  background-color: pink;
   width: 100px;
   height: 100px;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
   margin: 0 auto;
+}
+
+.bubble__timer {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+
+.bubble__circle {
+  fill: none;
+  stroke: none;
+}
+
+.bubble__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
 }
