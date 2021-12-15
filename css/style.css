@@ -466,6 +466,9 @@ input {
   width: 100px;
   height: 100px;
   margin: 0 auto;
+  position: relative;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
 }
 
 .bubble__timer {
@@ -482,4 +485,33 @@ input {
 .bubble__path-elapsed {
   stroke-width: 7px;
   stroke: grey;
+}
+
+.bubble__glare {
+  position: absolute;
+  content: '';
+  width: 90px;
+  height: 90px;
+  left: 5px;
+  top: 5px;
+  background-color: pink;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  opacity: 0;
+}
+
+.bubble__glare_active {
+  opacity: 1;
+}
+
+.bubble__content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.bubble__time {
+  text-align: center;
 }

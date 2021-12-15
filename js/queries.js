@@ -135,49 +135,52 @@ function deleteTask(val){
 }
 
 
-let timeStart = 0;
-function insertTime(){
+// let timeStart = 0;
+// function timePassed(timeStart){
 
-	if (timeStart) {
-		let timeEnd = new Date;
-		timeStart = timeStart.toISOString().slice(0, 19).replace('T', ' ')
-		timeEnd = timeEnd.toISOString().slice(0, 19).replace('T', ' ')
-		const currentQuery = "INSERT INTO active_time (timeStart, timeEnd) VALUES ('" + timeStart + "', '" + timeEnd + "');";
-		connection.query(currentQuery, (err, rows, fields) =>{
-			if (err) {
-				return console.log('Error', err);
-			}
-		});
+// 	if (timeStart) {
+// 		let timeEnd = new Date;
+// 		timeStart = timeStart.toISOString().slice(0, 19).replace('T', ' ')
+// 		timeEnd = timeEnd.toISOString().slice(0, 19).replace('T', ' ')
 
-		const currentQueryDiff = "SELECT * FROM active_time WHERE timeId = (SELECT MAX(timeId) FROM active_time);";
-		let pShowTime = new Promise((resolve, reject) => {
-			function showTime (){
-				connection.query(currentQueryDiff, (err, rows, fields) =>{
-					if (err) {
-						return console.log('Error', err);
-					}
-					result = rows;
-					resolve(result);
-				});
-			}
-			showTime();
-		});
+// 		const currentQuery = "INSERT INTO active_time (timeStart, timeEnd) VALUES ('" + timeStart + "', '" + timeEnd + "');";
+// 		connection.query(currentQuery, (err, rows, fields) =>{
+// 			if (err) {
+// 				return console.log('Error', err);
+// 			}
+// 		});
 
-		pShowTime.then(function(result) {
-			Object.keys(result).forEach(function(el) {
-				let diff = result[el].timeEnd - result[el].timeStart;
-				console.log(diff);
-			});
-		}).catch((reason) => {
-			console.log(`Handle rejected promise (${reason}) here.`);
-		});
+// 		const currentQueryDiff = "SELECT * FROM active_time WHERE timeId = (SELECT MAX(timeId) FROM active_time);";
+// 		let pShowTime = new Promise((resolve, reject) => {
+// 			function showTime (){
+// 				connection.query(currentQueryDiff, (err, rows, fields) =>{
+// 					if (err) {
+// 						return console.log('Error', err);
+// 					}
+// 					result = rows;
+// 					resolve(result);
+// 				});
+// 			}
+// 			showTime();
+// 		});
 
-		timeStart = 0;
-		timeEnd = 0;
-		}else{
-		timeStart = new Date();
-	}
-}
+// 		pShowTime.then(function(result) {
+// 			Object.keys(result).forEach(function(el) {
+// 				let diff = result[el].timeEnd - result[el].timeStart;
+// 				console.log(diff);
+// 				document.getElementById("time-limit").innerHTML = diff;
+// 				return diff;
+// 			});
+// 		}).catch((reason) => {
+// 			console.log(`Handle rejected promise (${reason}) here.`);
+// 		});
+
+// 		timeStart = 0;
+// 		timeEnd = 0;
+// 		}else{
+// 		timeStart = new Date();
+// 	}
+// }
 
 
 
