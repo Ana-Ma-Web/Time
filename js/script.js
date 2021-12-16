@@ -2,9 +2,9 @@ showTasks();
 
 function update() {
 	let date = new Date();
-	let time = document.getElementById('time');
-	let myDate = document.getElementById('date');
-	let week = document.getElementById('week');
+	const time = document.getElementById('time');
+	const myDate = document.getElementById('date');
+	const week = document.getElementById('week');
 	
 	updateHours();
 	updateMinutes();
@@ -115,7 +115,7 @@ document.getElementById("show-task-btn").addEventListener("click", function() {
 })
 
 function delTasksListener(){
-	let tasksTextSelect = document.querySelectorAll(".task__text");
+	const tasksTextSelect = document.querySelectorAll(".task__text");
 	for (let i = 0; i < tasksTextSelect.length; i++) {
 		const element = tasksTextSelect[i];
 		element.addEventListener("dblclick", function() {
@@ -140,12 +140,7 @@ document.getElementById('bubble').addEventListener('click', function(){
 			timeStart = timeStart.toISOString().slice(0, 19).replace('T', ' ')
 			timeEnd = timeEnd.toISOString().slice(0, 19).replace('T', ' ')
 	
-			const currentQuery = "INSERT INTO active_time (timeStart, timeEnd) VALUES ('" + timeStart + "', '" + timeEnd + "');";
-			connection.query(currentQuery, (err, rows, fields) =>{
-				if (err) {
-					return console.log('Error', err);
-				}
-			});
+			insertLogTime(timeStart, timeEnd);
 	
 			const currentQueryDiff = "SELECT * FROM active_time WHERE timeId = (SELECT MAX(timeId) FROM active_time);";
 			let pShowTime = new Promise((resolve, reject) => {
@@ -159,6 +154,9 @@ document.getElementById('bubble').addEventListener('click', function(){
 					});
 				}
 				showTime();
+
+				
+
 			});
 	
 			pShowTime.then(function(result) {
@@ -172,12 +170,30 @@ document.getElementById('bubble').addEventListener('click', function(){
 			}).catch((reason) => {
 				console.log(`Handle rejected promise (${reason}) here.`);
 			});
+
+			resetLogTime (timeStart, timeEnd);
 	
-			timeStart = 0;
-			timeEnd = 0;
 			}else{
 			timeStart = new Date();
 			document.getElementById('bubble__glare').classList.add('bubble__glare_active');
 		}
+	}
+
+	function insertLogTime(timeStart, timeEnd){
+		const currentQuery = "INSERT INTO active_time (timeStart, timeEnd) VALUES ('" + timeStart + "', '" + timeEnd + "');";
+		connection.query(currentQuery, (err, rows, fields) =>{
+			if (err) {
+				return console.log('Error', err);
+			}
+		});
+	}
+
+	function resetLogTime (timeStart, timeEnd){
+		timeStart = 0;
+		timeEnd = 0;
+}
+
+	function calcLogTime(){
+
 	}
 })
