@@ -103,8 +103,8 @@ function showTasks() {
 
 
 
-function insertQuery (table, val){
-	const currentQuery = 'INSERT INTO ' + table + ' (name) VALUES ("' + val + '");';
+function insertQuery (table, field, val){
+	const currentQuery = 'INSERT INTO ' + table + ' (' + field + ') VALUES ("' + val + '");';
 	connection.query(currentQuery, (err, rows, fields) =>{
 		if (err) {
 			return console.log('Error', err);
@@ -123,7 +123,7 @@ function deleteQuery (table, col, rowId){
 
 function inputTask(){
 	addTaskInput = document.getElementById('add-task');
-	insertQuery('task', addTaskInput.value);
+	insertQuery('task', 'name', addTaskInput.value);
 	addTaskInput.value = '';
 	showTasks();
 }
@@ -133,6 +133,12 @@ function deleteTask(val){
 	deleteQuery('task', 'id', rowId);
 	showTasks();
 }
+
+function insertLogTime(timeStart, timeEnd){
+	let values = timeStart + '", "' + timeEnd;
+	insertQuery('active_time', 'timeStart, timeEnd', values);
+}
+
 
 
 // let timeStart = 0;

@@ -180,16 +180,6 @@ document.getElementById('bubble').addEventListener('click', function(){
 		}
 	}
 
-	function insertLogTime(timeStart, timeEnd){
-		const currentQuery = "INSERT INTO active_time (timeStart, timeEnd) VALUES ('" + timeStart + "', '" + timeEnd + "');";
-		connection.query(currentQuery, (err, rows, fields) =>{
-			if (err) {
-				return console.log('Error', err);
-			}
-		});
-	}
-
-
 	function calcLogTime(){
 
 	}
