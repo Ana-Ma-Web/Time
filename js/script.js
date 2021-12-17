@@ -170,8 +170,9 @@ document.getElementById('bubble').addEventListener('click', function(){
 			}).catch((reason) => {
 				console.log(`Handle rejected promise (${reason}) here.`);
 			});
-
-			resetLogTime (timeStart, timeEnd);
+			
+			timeStart = 0;
+			timeEnd = 0;
 	
 			}else{
 			timeStart = new Date();
@@ -188,10 +189,6 @@ document.getElementById('bubble').addEventListener('click', function(){
 		});
 	}
 
-	function resetLogTime (timeStart, timeEnd){
-		timeStart = 0;
-		timeEnd = 0;
-}
 
 	function calcLogTime(){
 
