@@ -105,7 +105,7 @@ document.getElementById("test").addEventListener("click", function() {
 	testPromise();
 })
 
-document.getElementById("form-add").addEventListener("submit", function(e) {
+document.getElementById("form-task-add").addEventListener("submit", function(e) {
 	inputTask();
 	e.preventDefault();
 }, false);
@@ -131,56 +131,50 @@ function delTasksListener(){
 let timeStart = 0;
 document.getElementById('bubble').addEventListener('click', function(){
 
-	const timeLimit = document.getElementById('time-limit');
+	// const timeLimit = document.getElementById('time-limit');
 	timePassed();
 	function timePassed(){
 
 		if (timeStart) {
 			let timeEnd = new Date;
-			timeStart = timeStart.toISOString().slice(0, 19).replace('T', ' ')
-			timeEnd = timeEnd.toISOString().slice(0, 19).replace('T', ' ')
-	
+			timeStart = timeStart.toISOString().slice(0, 19).replace('T', ' ');
+			timeEnd = timeEnd.toISOString().slice(0, 19).replace('T', ' ');
+
 			insertLogTime(timeStart, timeEnd);
-	
-			const currentQueryDiff = "SELECT * FROM active_time WHERE timeId = (SELECT MAX(timeId) FROM active_time);";
+
 			let pShowTime = new Promise((resolve, reject) => {
-				function showTime (){
-					connection.query(currentQueryDiff, (err, rows, fields) =>{
-						if (err) {
-							return console.log('Error', err);
-						}
-						result = rows;
-						resolve(result);
-					});
-				}
-				showTime();
-
-				
-
-			});
-	
-			pShowTime.then(function(result) {
-				Object.keys(result).forEach(function(el) {
-					let diff = result[el].timeEnd - result[el].timeStart;
-					console.log(diff);
-					document.getElementById("time-limit").innerHTML = diff;
-					document.getElementById('bubble__glare').classList.remove('bubble__glare_active');
-					return diff;
+				const currentQueryDiff = "SELECT * FROM active_time WHERE timeId = (SELECT MAX(timeId) FROM active_time);";
+				connection.query(currentQueryDiff, (err, rows, fields) =>{
+					if (err) {
+						return console.log('Error', err);
+					}
+					result = rows;
+					resolve(result);
 				});
+			});
+
+			pShowTime.then(function(result) {
+				innerTimeDiff(result);
 			}).catch((reason) => {
 				console.log(`Handle rejected promise (${reason}) here.`);
 			});
 			
 			timeStart = 0;
 			timeEnd = 0;
-	
+
 			}else{
 			timeStart = new Date();
 			document.getElementById('bubble__glare').classList.add('bubble__glare_active');
 		}
 	}
-
-	function calcLogTime(){
-
-	}
 })
+
+function innerTimeDiff(result){
+	Object.keys(result).forEach(function(el) {
+		let diff = result[el].timeEnd - result[el].timeStart;
+		console.log(diff);
+		document.getElementById("time-limit").innerHTML = diff;
+		document.getElementById('bubble__glare').classList.remove('bubble__glare_active');
+		return diff;
+	});
+}

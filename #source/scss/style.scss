@@ -111,8 +111,12 @@ input{
 .today-icon {
 
 	&__icon {
-		width: 24px;
-		height: 24px;
+		background-image: url(../img/pict.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 25px;
+		height: 25px;
 	}
 
 	&__number {
@@ -371,6 +375,23 @@ input{
 }
 .activity {
 	width: 110px;
+
+	&__add{
+		&-container{
+			text-align: center;
+			margin: 7px;
+			font-size: 0;
+		}
+		&-btn{
+			display: inline-block;
+			background-image: url(../img/plus.svg);
+			width: 21px;
+			height: 21px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	}
 
 	&__navigation {
 

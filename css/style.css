@@ -124,8 +124,13 @@ input {
 }
 
 .today-icon__icon {
-  width: 24px;
-  height: 24px;
+  background-image: url(../img/pict.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+          background-size: cover;
+  width: 25px;
+  height: 25px;
 }
 
 .watch {
@@ -460,6 +465,23 @@ input {
 
 .activity {
   width: 110px;
+}
+
+.activity__add-container {
+  text-align: center;
+  margin: 7px;
+  font-size: 0;
+}
+
+.activity__add-btn {
+  display: inline-block;
+  background-image: url(../img/plus.svg);
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+          background-size: cover;
 }
 
 .bubble {

@@ -38,7 +38,6 @@
 					<div class="today-icons">
 						<div class="today-icon">
 							<div class="today-icon__icon">
-								<img src="/img/pict.svg" alt="picture">
 							</div>
 							<div class="today-icon__number">2</div>
 						</div>
@@ -144,7 +143,7 @@
 								<div class="task__delete">Удалить</div>
 								<button class="test-btn" id="show-tables">Show tables</button>
 								<button class="test-btn" id="add">Add</button>
-								<form action="" id="form-add" method="post">
+								<form action="" id="form-task-add" method="post">
 									<label>
 										<input id="add-task" type="text" placeholder="add task">
 										<button  >Add task</button>
@@ -166,6 +165,23 @@
 				</div>
 
 				<div class="activity">
+					<div class="activity__add-container">
+						<button class="activity__add-btn"></button>
+						<div class="activity__form-container">
+							<form action="" id="form-act-add" class="activity__form form">
+								<input class="form__input" id="form-act-name" type="text" placeholder="Name">
+								<select class="form__select" name="icon" id="form-act-icon">
+									<option class="form__option" value="">icon</option>
+									<option class="form__option" value="1">1</option>
+									<option class="form__option" value="2">2</option>
+								</select>
+								<input type="color" name="bg" value="#ff8ADA">
+								<button class="form__btn_confirm" >Add</button>
+								<button class="form__btn_cansel"></button>
+
+							</form>
+						</div>
+					</div>
 					<div class="activity__navigation_up"></div>
 					<div class="activity__now">
 						<div id="bubble" class="bubble">
@@ -208,7 +224,7 @@
 		<script src="./js/queries.js"></script>
 		<script src="./js/script.js"></script>
 		<script src="./js/clock/clock.js"></script>
-		<!-- <script src="./js/task-list/task.js"></script> -->
+		<script src="./js/task-list/task.js"></script>
 		<script src="./js/activity/activity.js"></script>
 	</body>
 </html>
