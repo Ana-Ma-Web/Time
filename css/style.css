@@ -82,6 +82,36 @@ input {
           justify-content: space-between;
 }
 
+.form__btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
+.form__btn_confirm {
+  background-image: url(../img/confirm.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+          background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.form__btn_cancel {
+  background-image: url(../img/cancel.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+          background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
 .main {
   width: 270px;
 }

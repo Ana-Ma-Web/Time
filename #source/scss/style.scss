@@ -75,6 +75,45 @@ input{
 	display: flex;
 	justify-content: space-between;
 }
+
+.form{
+	&__input{
+
+	}
+
+	&__select{
+
+	}
+
+	&__option{
+
+	}
+
+	&__btn{
+		display: flex;
+		justify-content: space-around;
+		
+		&_confirm{
+			background-image: url(../img/confirm.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 25px;
+			height: 25px;
+		}
+		
+		&_cancel{
+			background-image: url(../img/cancel.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 25px;
+			height: 25px;
+	
+		}
+	}
+}
+
 .main {
 	width: 270px;
 }

@@ -167,18 +167,19 @@
 				<div class="activity">
 					<div class="activity__add-container">
 						<button class="activity__add-btn"></button>
-						<div class="activity__form-container">
-							<form action="" id="form-act-add" class="activity__form form">
+						<div class="activity__menu menu">
+							<form action="" class="activity__form form" id="form-act-add">
 								<input class="form__input" id="form-act-name" type="text" placeholder="Name">
 								<select class="form__select" name="icon" id="form-act-icon">
 									<option class="form__option" value="">icon</option>
 									<option class="form__option" value="1">1</option>
 									<option class="form__option" value="2">2</option>
 								</select>
-								<input type="color" name="bg" value="#ff8ADA">
-								<button class="form__btn_confirm" >Add</button>
-								<button class="form__btn_cansel"></button>
-
+								<input type="color" name="bubble-color" value="#ff8ADA">
+								<div class="form__btn">
+									<button class="form__btn_confirm" >Add</button>
+									<button class="form__btn_cancel"></button>
+								</div>
 							</form>
 						</div>
 					</div>
