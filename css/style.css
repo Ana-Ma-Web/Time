@@ -82,6 +82,10 @@ input {
           justify-content: space-between;
 }
 
+.form__input {
+  width: 100px;
+}
+
 .form__btn {
   display: -webkit-box;
   display: -webkit-flex;
