@@ -138,6 +138,12 @@ input{
 	}
 }
 .menu {
+	&-shown{
+		display: initial;
+	}
+	&-hidden{
+		display: none;
+	}
 }
 
 .today-icons {

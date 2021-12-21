@@ -143,6 +143,14 @@ input {
   font-weight: 900;
 }
 
+.menu-shown {
+  display: initial;
+}
+
+.menu-hidden {
+  display: none;
+}
+
 .today-icons {
   display: -webkit-box;
   display: -webkit-flex;
